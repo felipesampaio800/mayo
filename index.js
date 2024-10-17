@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = 3001;
 const sequelize = require('./config/db');
-const todoRoutes = require('./routes/toDoRoutes'); // Importando as rotas
+const todoRoutes = require('./routes/todoRoutes'); // Importando as rotas
 
 // Configuração para servir arquivos estáticos (CSS, JS, Imagens, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
