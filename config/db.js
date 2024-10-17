@@ -2,8 +2,10 @@
 
 const { Sequelize } = require('sequelize');
 
-// Carrega as variáveis de ambiente
-require('dotenv').config();
+// Carrega as variáveis de ambiente apenas em desenvolvimento
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,     // Nome do banco de dados
@@ -13,13 +15,6 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST, // Host do banco de dados
     port: process.env.DB_PORT, // Porta do banco de dados
     dialect: 'mysql',
-    dialectOptions: {
-      // Se o seu provedor exigir SSL, configure aqui
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    },
     logging: false // Desativa logs detalhados (opcional)
   }
 );
