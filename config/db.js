@@ -1,8 +1,9 @@
 // config/db.js
 
-require('dotenv').config(); // Carrega as variáveis de ambiente
-
 const { Sequelize } = require('sequelize');
+
+// Carrega as variáveis de ambiente
+require('dotenv').config();
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,     // Nome do banco de dados
